@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Chuck Norris Jokes</string>
+
+    <!-- COMMON-->
+    <string name="common_error">Erro inesperado</string>
+
+    <!-- TITLES-->
+    <string name="categories_title">Categorias</string>
+</resources>
