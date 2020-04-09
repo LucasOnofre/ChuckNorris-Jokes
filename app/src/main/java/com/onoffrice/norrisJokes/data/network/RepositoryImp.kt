@@ -1,16 +1,15 @@
 package com.onoffrice.norrisJokes.data.network
 
 import com.onoffrice.norrisJokes.data.models.Joke
-import com.onoffrice.norrisJokes.data.network.model.JokeCategories
 import io.reactivex.Single
+import javax.inject.Inject
 
-
-interface Repository {
+interface  Repository {
     fun getCategories() : Single<MutableList<String>>
     fun getJokeByCategory(category: String) : Single<Joke>
 }
 
-class RepositoryImp(private val service: Service): Repository {
+class RepositoryImp @Inject constructor(private val service: Service): Repository {
 
    override fun getCategories(): Single<MutableList<String>> {
         return service.getCategories()

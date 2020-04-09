@@ -3,8 +3,9 @@ package com.onoffrice.norrisJokes.ui.categories
 import com.onoffrice.norrisJokes.data.network.Repository
 import com.onoffrice.norrisJokes.utils.extensions.singleSubscribe
 import io.reactivex.disposables.CompositeDisposable
+import javax.inject.Inject
 
-class CategoriesPresenter(private val repository: Repository) : CategoriesContract.Presenter {
+class CategoriesPresenter @Inject constructor(private val repository: Repository) : CategoriesContract.Presenter {
 
     private var view: CategoriesContract.View? = null
 

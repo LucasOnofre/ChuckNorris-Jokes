@@ -7,17 +7,17 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.onoffrice.norrisJokes.R
 import com.onoffrice.norrisJokes.base.BaseActivity
-import com.onoffrice.norrisJokes.data.network.Injector
+import com.onoffrice.norrisJokes.utils.extensions.appComponent
 import kotlinx.android.synthetic.main.category_activity.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.toast
+import javax.inject.Inject
 
 
 class CategoriesActivity : BaseActivity(), CategoriesContract.View {
 
-    private val categoriesPresenter = Injector.providePresenter().apply {
-        this.attachView(this@CategoriesActivity)
-    }
+    @Inject
+    lateinit var categoriesPresenter: CategoriesPresenter
 
     private val categoryAdapter: CategoryAdapter by lazy {
         val adapter = CategoryAdapter(object : CategoryClickListener{
@@ -40,8 +40,10 @@ class CategoriesActivity : BaseActivity(), CategoriesContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.category_activity)
+        appComponent().inject(this)
         setToolbar(getString(R.string.categories_title))
         setListeners()
+        categoriesPresenter.attachView(this)
         categoriesPresenter.getCategories()
     }
 

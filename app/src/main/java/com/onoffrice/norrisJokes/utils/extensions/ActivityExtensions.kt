@@ -5,7 +5,9 @@ import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.os.Handler
+import com.onoffrice.norrisJokes.BaseApplication
 import com.onoffrice.norrisJokes.R
+import com.onoffrice.norrisJokes.data.di.AppComponent
 
 fun Context.isNetworkConnected(): Boolean {
     val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -30,4 +32,8 @@ fun Activity.startActivityTransition(intent: Intent, idAnimationOut: Int,
             this.overridePendingTransition(idAnimationIn, idAnimationOut)
         }, delay)
     }
+}
+
+fun Activity.appComponent(): AppComponent {
+    return (applicationContext as BaseApplication).appComp()
 }
