@@ -1,6 +1,7 @@
 package com.onoffrice.norrisJokes.data.di
 
 import com.onoffrice.norrisJokes.ui.categories.CategoriesActivity
+import com.onoffrice.norrisJokes.ui.randomJoke.RandomJokeActivity
 import dagger.Component
 import javax.inject.Singleton
 
@@ -13,5 +14,6 @@ import javax.inject.Singleton
 
 interface AppComponent {
     fun inject(target: CategoriesActivity)
+    fun inject(target: RandomJokeActivity)
 
 }

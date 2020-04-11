@@ -1,0 +1,21 @@
+<resources>
+
+    <!--DEFAULT-->
+
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin">16dp</dimen>
+    <dimen name="margin_medium">24dp</dimen>
+    <dimen name="margin_big">32dp</dimen>
+
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding">16dp</dimen>
+    <dimen name="padding_medium">24dp</dimen>
+    <dimen name="padding_big">32dp</dimen>
+
+    <!--TEXT-->
+    <dimen name="body_text_size">16sp</dimen>
+
+    <!--CUSTOM-->
+    <dimen name="joke_icon_size">100dp</dimen>
+
+</resources>

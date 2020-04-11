@@ -4,10 +4,12 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
+import android.net.Uri
 import android.os.Handler
 import com.onoffrice.norrisJokes.BaseApplication
 import com.onoffrice.norrisJokes.R
 import com.onoffrice.norrisJokes.data.di.AppComponent
+import org.jetbrains.anko.toast
 
 fun Context.isNetworkConnected(): Boolean {
     val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -36,4 +38,13 @@ fun Activity.startActivityTransition(intent: Intent, idAnimationOut: Int,
 
 fun Activity.appComponent(): AppComponent {
     return (applicationContext as BaseApplication).appComp()
+}
+
+fun Context.startBrowserWithUrlIntent(url: String) {
+    try {
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(browserIntent)
+    } catch (e: Exception) {
+        toast(this.getString(R.string.url_error))
+    }
 }

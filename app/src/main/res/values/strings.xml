@@ -3,7 +3,12 @@
 
     <!-- COMMON-->
     <string name="common_error">Erro inesperado</string>
+    <string name="url_error">Não foi possível abrir a página, por favor, tente novamente!</string>
 
     <!-- TITLES-->
     <string name="categories_title">Categorias</string>
+
+    <!-- CUSTOM-->
+    <string name="check_url_on_website">Ver no site</string>
+
 </resources>

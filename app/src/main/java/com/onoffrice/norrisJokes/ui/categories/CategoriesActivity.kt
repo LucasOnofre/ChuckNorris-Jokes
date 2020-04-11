@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.onoffrice.norrisJokes.R
 import com.onoffrice.norrisJokes.base.BaseActivity
+import com.onoffrice.norrisJokes.ui.randomJoke.createRandomJokeIntent
 import com.onoffrice.norrisJokes.utils.extensions.appComponent
+import com.onoffrice.norrisJokes.utils.extensions.startActivitySlideTransition
 import kotlinx.android.synthetic.main.category_activity.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.toast
@@ -22,7 +24,7 @@ class CategoriesActivity : BaseActivity(), CategoriesContract.View {
     private val categoryAdapter: CategoryAdapter by lazy {
         val adapter = CategoryAdapter(object : CategoryClickListener{
             override fun onClickCategory(category: String) {
-               toast(category)
+               startActivitySlideTransition(createRandomJokeIntent(category))
             }
         })
 

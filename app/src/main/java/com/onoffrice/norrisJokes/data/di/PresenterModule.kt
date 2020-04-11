@@ -4,6 +4,7 @@ import com.onoffrice.norrisJokes.data.network.Repository
 import com.onoffrice.norrisJokes.data.network.RepositoryImp
 import com.onoffrice.norrisJokes.data.network.Service
 import com.onoffrice.norrisJokes.ui.categories.CategoriesPresenter
+import com.onoffrice.norrisJokes.ui.randomJoke.RandomJokePresenter
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -14,6 +15,10 @@ class PresenterModule {
     @Provides
     @Singleton
     fun provideCategoriesPresenter(repository: Repository) =  CategoriesPresenter(repository)
+
+    @Provides
+    @Singleton
+    fun provideRandomJokePresenter(repository: Repository) =  RandomJokePresenter(repository)
 
     @Provides
     @Singleton

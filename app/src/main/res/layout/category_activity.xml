@@ -24,7 +24,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/categoriesRv"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/margin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
