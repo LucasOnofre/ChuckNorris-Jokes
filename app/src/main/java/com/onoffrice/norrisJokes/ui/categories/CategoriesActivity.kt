@@ -9,6 +9,7 @@ import com.onoffrice.norrisJokes.R
 import com.onoffrice.norrisJokes.base.BaseActivity
 import com.onoffrice.norrisJokes.ui.randomJoke.createRandomJokeIntent
 import com.onoffrice.norrisJokes.utils.extensions.appComponent
+import com.onoffrice.norrisJokes.utils.extensions.setVisible
 import com.onoffrice.norrisJokes.utils.extensions.startActivitySlideTransition
 import kotlinx.android.synthetic.main.category_activity.*
 import org.jetbrains.anko.intentFor
@@ -57,6 +58,7 @@ class CategoriesActivity : BaseActivity(), CategoriesContract.View {
 
     override fun displayError(message: String?) {
         toast(message ?: getString(R.string.common_error))
+        categoriesRv.setVisible(false)
     }
 
     override fun displayLoading(loading: Boolean) {

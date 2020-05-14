@@ -52,7 +52,8 @@ ext {
     //GLIDE
     glideVersion = '4.10.0'
 
-    //KOIN
-    koinVersion = '2.0.1'
+    test_runner_version = '1.1.1'
+    espresso_version = '3.1.1'
+    core_ktx_test_version = "1.2.0"
 
 }

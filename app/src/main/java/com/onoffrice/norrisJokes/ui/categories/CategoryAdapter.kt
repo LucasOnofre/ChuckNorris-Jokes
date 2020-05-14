@@ -14,7 +14,7 @@ interface CategoryClickListener {
 class CategoryAdapter (
     private val listener: CategoryClickListener
 
-): RecyclerView.Adapter<CategoryAdapter.JokeViewHolder>() {
+): RecyclerView.Adapter<CategoryAdapter.JokeCategoryViewHolder>() {
 
     var list: MutableList<String> = mutableListOf()
         set(value) {
@@ -22,19 +22,19 @@ class CategoryAdapter (
             notifyDataSetChanged()
         }
 
-    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): JokeViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): JokeCategoryViewHolder {
 
         val view: View =
             LayoutInflater.from(parent.context).inflate(R.layout.category_item, parent, false)
 
-        return JokeViewHolder(view)
+        return JokeCategoryViewHolder(view)
     }
 
     override fun getItemCount(): Int {
         return list.size
     }
 
-    override fun onBindViewHolder(holder: JokeViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: JokeCategoryViewHolder, position: Int) {
         val category = list[position]
 
         category.let {
@@ -46,7 +46,7 @@ class CategoryAdapter (
         }
     }
 
-    class JokeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class JokeCategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val categoryItem = itemView.categoryItem
     }
 }

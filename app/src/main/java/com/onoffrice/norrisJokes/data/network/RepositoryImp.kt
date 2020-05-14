@@ -1,6 +1,6 @@
 package com.onoffrice.norrisJokes.data.network
 
-import com.onoffrice.norrisJokes.data.models.Joke
+import com.onoffrice.norrisJokes.data.network.model.Joke
 import io.reactivex.Single
 import javax.inject.Inject
 

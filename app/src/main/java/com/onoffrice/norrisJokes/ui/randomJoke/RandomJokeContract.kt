@@ -1,7 +1,7 @@
 package com.onoffrice.norrisJokes.ui.randomJoke
 
 import com.onoffrice.norrisJokes.base.BasePresenter
-import com.onoffrice.norrisJokes.data.models.Joke
+import com.onoffrice.norrisJokes.data.network.model.Joke
 
 
 interface RandomJokeContract {

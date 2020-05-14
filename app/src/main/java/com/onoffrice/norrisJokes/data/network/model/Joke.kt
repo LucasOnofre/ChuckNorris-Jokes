@@ -1,4 +1,4 @@
-package com.onoffrice.norrisJokes.data.models
+package com.onoffrice.norrisJokes.data.network.model
 
 import com.google.gson.annotations.SerializedName
 

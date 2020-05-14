@@ -5,12 +5,11 @@ import android.os.Bundle
 import com.onoffrice.norrisJokes.Constants
 import com.onoffrice.norrisJokes.R
 import com.onoffrice.norrisJokes.base.BaseActivity
-import com.onoffrice.norrisJokes.data.models.Joke
+import com.onoffrice.norrisJokes.data.network.model.Joke
 import com.onoffrice.norrisJokes.utils.extensions.appComponent
 import com.onoffrice.norrisJokes.utils.extensions.loadImage
 import com.onoffrice.norrisJokes.utils.extensions.setVisible
 import com.onoffrice.norrisJokes.utils.extensions.startBrowserWithUrlIntent
-import kotlinx.android.synthetic.main.category_activity.*
 import kotlinx.android.synthetic.main.category_activity.swipeRefresh
 import kotlinx.android.synthetic.main.random_joke_activity.*
 import org.jetbrains.anko.intentFor
