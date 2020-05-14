@@ -46,7 +46,7 @@ class RandomJokeActivity : BaseActivity(), RandomJokeContract.View {
         }
 
         jokeSiteBtn.setOnClickListener {
-            startBrowserWithUrlIntent(randomJoke.url)
+            randomJokePresenter.onGoToSiteBtnClicked()
         }
     }
 
@@ -71,6 +71,10 @@ class RandomJokeActivity : BaseActivity(), RandomJokeContract.View {
         jokeSiteBtn.setVisible(isVisible)
         jokeIcon.setVisible(isVisible)
         jokeText.setVisible(isVisible)
+    }
+
+    override fun openSite(url: String) {
+        startBrowserWithUrlIntent(url)
     }
 }
 

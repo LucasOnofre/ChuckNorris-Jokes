@@ -30,6 +30,11 @@ class CategoriesPresenter @Inject constructor(private val repository: Repository
         ))
     }
 
+    override fun categoryClicked(category: String) {
+        view?.openCategoryChosen(category)
+    }
+
+
     override fun detachView() {
         view = null
         disposable.dispose()

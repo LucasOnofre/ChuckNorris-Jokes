@@ -48,8 +48,8 @@ class CategoriesPresenterTest {
 
     @Test
     fun test_getCategories_error_displayError() {
-        val errorMessage = "Unknown error"
         //Arrange
+        val errorMessage = "Unknown error"
 
         Mockito.`when`(repository.getCategories()).thenReturn(Single.error(Throwable(errorMessage)))
 
@@ -58,5 +58,17 @@ class CategoriesPresenterTest {
 
         //Assert
         verify(view).displayError(errorMessage)
+    }
+
+    @Test
+    fun test_getCategories_success_openJoke() {
+        //Arrange
+        val categorie = "Categoria 1"
+
+        //Act
+        presenter.categoryClicked(categorie)
+
+        //Assert
+        verify(view).openCategoryChosen(categorie)
     }
 }

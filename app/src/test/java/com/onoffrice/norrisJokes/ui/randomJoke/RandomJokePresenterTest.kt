@@ -56,7 +56,6 @@ class RandomJokePresenterTest {
 
         //Assert
         verify(view).displayJoke(joke)
-        Assert.assertEquals(joke.categories.contains(categorie), true)
     }
 
     @Test
@@ -69,5 +68,20 @@ class RandomJokePresenterTest {
 
         //Assert
         verify(view).displayError(errorMessage)
+    }
+
+    @Test
+    fun test_getRandomJoke_success_displayJoke_btnClicked() {
+
+        //Arrange
+        Mockito.`when`(repository.getJokeByCategory(categorie)).thenReturn(Single.just(joke))
+
+        presenter.getJoke(categorie)
+
+        //Act
+        presenter.onGoToSiteBtnClicked()
+
+        //Assert
+        verify(view).openSite(joke.url)
     }
 }

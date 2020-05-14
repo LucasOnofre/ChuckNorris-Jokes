@@ -25,7 +25,7 @@ class CategoriesActivity : BaseActivity(), CategoriesContract.View {
     private val categoryAdapter: CategoryAdapter by lazy {
         val adapter = CategoryAdapter(object : CategoryClickListener{
             override fun onClickCategory(category: String) {
-               startActivitySlideTransition(createRandomJokeIntent(category))
+                categoriesPresenter.categoryClicked(category)
             }
         })
 
@@ -67,6 +67,10 @@ class CategoriesActivity : BaseActivity(), CategoriesContract.View {
 
     override fun displayCategories(categoryList: MutableList<String>) {
         categoryAdapter.list = categoryList
+    }
+
+    override fun openCategoryChosen(category: String) {
+        startActivitySlideTransition(createRandomJokeIntent(category))
     }
 }
 

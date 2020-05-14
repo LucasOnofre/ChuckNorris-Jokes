@@ -8,9 +8,11 @@ interface CategoriesContract {
         fun displayLoading(loading: Boolean)
         fun displayError(message: String?)
         fun displayCategories(categoryList: MutableList<String>)
+        fun openCategoryChosen(category: String)
     }
 
     interface Presenter : BasePresenter<View> {
         fun getCategories()
+        fun categoryClicked(category: String)
     }
 }

@@ -1,6 +1,7 @@
 package com.onoffrice.norrisJokes.ui.randomJoke
 
 import com.onoffrice.norrisJokes.data.network.Repository
+import com.onoffrice.norrisJokes.data.network.model.Joke
 import com.onoffrice.norrisJokes.utils.extensions.singleSubscribe
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
@@ -9,6 +10,8 @@ class RandomJokePresenter @Inject constructor(private val repository: Repository
 
     private var view: RandomJokeContract.View? = null
     private  var disposable = CompositeDisposable()
+
+    private lateinit var joke: Joke
 
     override fun attachView(mvpView: RandomJokeContract.View) {
         view = mvpView
@@ -24,11 +27,16 @@ class RandomJokePresenter @Inject constructor(private val repository: Repository
                 view?.displayLoading(it)
             },
             onSuccess = {
-                view?.displayJoke(it)
+                joke = it
+                view?.displayJoke(joke)
             },
-            onError   = {
+            onError = {
                 view?.displayError(it.message)
             }
         ))
+    }
+
+    override fun onGoToSiteBtnClicked() {
+        view?.openSite(joke.url)
     }
 }
